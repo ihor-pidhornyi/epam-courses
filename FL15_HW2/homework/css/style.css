@@ -1,0 +1,150 @@
+@media print {
+
+    .tm-sidebar,
+    .gallery-container,
+    section:not(.what-we-do),
+    section::before {
+        display: none;
+    }
+
+    .what-we-do {
+        margin: -1.8em 0 -5em;
+    }
+
+    .tm-banner-wrapper {
+        margin-bottom: 0;
+    }
+
+    .tm-main-content {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .tm-text-wrapper {
+        flex: 0.62;
+    }
+
+    .tm-picture-wrapper {
+        flex: 0.38;
+    }
+
+    h2.tm-section-title {
+        color: #1219ff;
+    }
+}
+
+.tm-nav-item:hover {
+    background-color: #f5f5f5;
+}
+
+.tm-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.what-we-do .tm-section-description {
+    text-indent: 30px;
+    line-height: 1.8;
+}
+
+.what-we-do p::first-line {
+    line-height: 1.2;
+}
+
+.box-bg h2.tm-section-title:hover {
+    background-color: #87CEFA;
+    font-weight: 700;
+    color: #fff;
+}
+
+.what-we-do p::first-letter,
+.tm-banner-text::first-letter,
+.tm-footer p::first-letter {
+    font-size: 30px;
+    color: #87CEFA;
+}
+
+.tm-sidebar,
+.tm-banner-wrapper,
+section {
+    box-shadow: 0px 0px 8px 2px rgba(153, 153, 153, 1);
+}
+
+.tm-banner-wrapper {
+    background-color: #f5f5f5;
+}
+
+.tm-banner-inner {
+    background-color: #fff;
+}
+
+section::before {
+    content: "";
+    border-left: 250px solid lightskyblue;
+    border-bottom: 30px solid transparent;
+    border-top: transparent;
+}
+
+.carousel-inner .tm-section-title {
+    color: gainsboro;
+    letter-spacing: 5px;
+}
+
+h2+p {
+    font-style: italic;
+}
+
+.tm-links-wrapper a:visited {
+    text-decoration: underline;
+}
+
+.tm-links-wrapper a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.text::after {
+    content: "New";
+    color: red;
+    font-size: 0.6em;
+    vertical-align: top;
+}
+
+.blocks .box {
+    padding: 10px 10px 15px;
+}
+
+.blocks .box:nth-child(2n) {
+    background-color: #f2f2f2;
+}
+
+.blocks .tm-content-box p::first-letter {
+    font-size: 26px;
+}
+
+.contact-form {
+    text-align: right;
+}
+
+.submit-btn {
+    padding: 1rem 4rem;
+    background-color: #fff;
+    font-size: 1.4rem;
+    font-weight: 300;
+    border: 1px solid #9cd6fb;
+    border-radius: 0;
+    color: #9cd6fb;
+}
+
+.submit-btn:hover {
+    color: #fff;
+    background-color: #9cd6fb;
+    border: 1px solid #6cc7ff;
+}
+
+.mandatory-field::after {
+    content: "*";
+    color: red;
+    font-weight: 700;
+}
