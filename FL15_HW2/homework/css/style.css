@@ -1,11 +1,14 @@
 @media print {
 
-    section:not(section:first-of-type),
-    *::before,
-    *::after,
+    section,
+    section::before,
     .tm-sidebar,
     .gallery-container {
         display: none;
+    }
+
+    section:first-of-type {
+        display: block;
     }
 
     .tm-main-content {
