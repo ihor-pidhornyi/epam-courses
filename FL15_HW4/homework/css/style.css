@@ -1,0 +1,336 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header-wrap,
+.content-wrap,
+.footer {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    padding: 2.9em 2.8em 3.25em 2.2em;
+}
+
+.header_logo {
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.header_logo a,
+.header_nav a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.footer_nav ul,
+.header_nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.header_nav ul {
+    min-width: 450px;
+}
+
+.welcome {
+    min-height: 100vh;
+    background-image: url("../img/apples.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #FFF;
+}
+
+.welcome-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85vh;
+    padding-top: 18.75em;
+}
+
+.welcome_company {
+    text-align: center;
+}
+
+.welcome_title {
+    vertical-align: bottom;
+    padding-top: 0.5em;
+    font-size: 4em;
+    font-weight: 400;
+    letter-spacing: 10px;
+}
+
+.text-bigger {
+    font-size: 1.8em;
+}
+
+.welcome_born {
+    font-size: 1.1em;
+}
+
+.content_card_likes,
+.welcome_button {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 3px solid #FFF;
+    font-size: 1.15em;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.welcome_button {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 0.975em 0em;
+    text-decoration: none;
+}
+
+.content_card_likes:hover,
+.welcome_button:hover {
+    filter: invert(1);
+}
+
+.about .content-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10.75em 4.8em 10.75em 2.4em;
+    white-space: pre-line;
+}
+
+.about .content_title {
+    font-size: 1.83em;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.about .content_text {
+    font-size: 1.1em;
+    line-height: 1.44;
+}
+
+.text-bolder {
+    font-weight: 600;
+}
+
+.articles {
+    background-color: #F3F3F3;
+}
+
+.articles .content-wrap {
+    padding: 2.25em;
+}
+
+.articles .content_title {
+    text-align: center;
+    margin: 4.75em 0 3.5em;
+    font-size: 1.93em;
+    font-weight: normal;
+}
+
+.content_card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2em;
+    gap: 1.5em;
+}
+
+.content_card:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+.content_card_img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.content_card_img {
+    width: 100%;
+}
+
+.brightness_reducer {
+    position: absolute;
+    width: 100%;
+    height: 99%;
+    box-shadow: 0px -70px 100px -12px rgba(0, 0, 0, 0.6) inset;
+}
+
+.content_card_caption {
+    position: absolute;
+    bottom: 28px;
+    left: 26px;
+    font-size: large;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.content_card_picture {
+    flex: 2.75;
+}
+
+.content_card_text {
+    flex: 1.5;
+    text-align: center;
+    font-size: large;
+    padding: 1em 0 0;
+}
+
+.content_card_likes {
+    position: absolute;
+    top: 28px;
+    right: 25px;
+    padding: 0.4em 0.7em;
+}
+
+.content_card_likes::after {
+    content: "♥";
+    margin-left: 5px;
+}
+
+.content_subscription {
+    display: flex;
+    align-items: center;
+    gap: 1.4em;
+    margin: 3.75em 0 1.75em;
+    padding: 3.6em 2em;
+    background-color: #FFF;
+}
+
+.content_subscription_heading {
+    font-size: 1.93em;
+    font-weight: 400;
+}
+
+.content_subscription_input-wrap {
+    display: flex;
+}
+
+.input_default {
+    background-color: #F3F3F3;
+    border: 1px solid #000;
+}
+
+.input_default::placeholder {
+    font-size: 1.25em;
+    color: #000;
+}
+
+.content_subscription_input {
+    width: 47.7vw;
+    padding: 2.15em 2em;
+}
+
+.input_button {
+    background-color: #343638;
+    border: none;
+    outline: none;
+    font-family: 'Open sans', sans-serif;
+    font-size: large;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.content_subscription_button {
+    padding: 0 1.25em;
+}
+
+.footer {
+    padding: 0 2.25em;
+}
+
+.footer_wrapper {
+    margin: 8.25em 0 7.4em;
+    font-size: 1.125em;
+}
+
+.footer_info_container,
+.footer_wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.1em;
+}
+
+.footer_info_text,
+.footer_subscription_text {
+    white-space: pre-line;
+    color: #A4A4A4;
+}
+
+.footer_info_tweet .footer_info_text {
+    font-style: italic;
+}
+
+.footer_info_tweet_time {
+    margin-top: .25em;
+    color: #E8E8E8;
+}
+
+.footer_info_contacts .footer_info_text {
+    line-height: 1.7;
+}
+
+.footer_info_contacts .footer_info_text::first-line {
+    line-height: 1.1;
+}
+
+.footer_info_contacts a {
+    text-decoration: none;
+    color: #A4A4A4;
+}
+
+.footer_subscription_form {
+    margin-top: .25em;
+    display: flex;
+}
+
+.footer_subscription_input {
+    width: 13vw;
+    padding: 1.2em 1em;
+}
+
+.footer_subscription_button {
+    padding: 0 .7em;
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+    border-top: 3px solid #F0F0F0;
+    font-size: large;
+}
+
+.footer_copyright {
+    color: #9E9E9E;
+}
+
+.footer_nav {
+    min-width: 310px;
+}
+
+.footer_nav a {
+    text-decoration: none;
+    color: #000;
+}
