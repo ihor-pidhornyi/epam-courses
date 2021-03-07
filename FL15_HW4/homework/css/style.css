@@ -219,11 +219,14 @@ body {
 }
 
 .content_subscription_heading {
+    flex: 0.3;
+    white-space: nowrap;
     font-size: 1.93em;
     font-weight: 400;
 }
 
 .content_subscription_input-wrap {
+    flex: 0.7;
     display: flex;
 }
 
@@ -238,7 +241,8 @@ body {
 }
 
 .content_subscription_input {
-    width: 47.7vw;
+    max-width: 47.7vw;
+    width: 100%;
     padding: 2.15em 2em;
 }
 
