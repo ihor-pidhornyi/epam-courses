@@ -62,7 +62,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
   padding: 1em 0;
 }
@@ -202,7 +201,9 @@ main {
 .help .info_title,
 .help .info_badge,
 .offers .info_title,
-.offers .info_badge {
+.offers .info_badge,
+.offers .info_offer,
+footer {
   text-align: center;
 }
 
@@ -245,7 +246,6 @@ main {
 }
 
 .offers .info_offer {
-  text-align: center;
   flex: 1 0 33%;
   background-color: #47c9e5;
   color: #FFF;
@@ -361,7 +361,6 @@ input::placeholder {
 }
 
 footer {
-  text-align: center;
   padding: 1.2em 0;
   background-color: #363636;
   color: #FFF;
@@ -413,15 +412,12 @@ footer {
 
   .about-wrap {
     flex-direction: column;
+    gap: 0;
   }
 
   .about_picture-wrap {
     max-width: unset;
     margin-top: 1.9em;
-  }
-
-  .about-wrap {
-    gap: 0;
   }
 
   .about_info {
@@ -454,11 +450,17 @@ footer {
   }
 
   .offers .info_offer {
+    max-width: 400px;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
     padding: 2.5em 0 1.5em;
   }
 
   .offers .info_offer:nth-last-of-type(2) {
-    margin: 0;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
     padding: 2.5em 0 1.75em;
   }
 
