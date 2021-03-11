@@ -348,7 +348,7 @@ input::placeholder {
   margin-top: .6em;
   padding: 1em 1.65em;
   background-color: #0078aa;
-  border: 1px solid #0078aa;
+  border: 1px solid transparent;
   border-radius: 12px;
   font-weight: 700;
   color: #FFF;
