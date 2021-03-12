@@ -1,0 +1,19 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.btn-default {
+    background-color: coral;
+}
+
+.btn-default:focus {
+    box-shadow: 0 0 0 0.2rem rgba(240, 128, 128, 0.25);
+}
+
+.logo-title {
+    font-size: 1em;
+}
+
+.main-title {
+    font-size: 2.75em;
+}
