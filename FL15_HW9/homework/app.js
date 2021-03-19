@@ -17,9 +17,7 @@ function forEach(arr, func) {
 
 function map(arr, func) {
     const transformedArray = [];
-    forEach(arr, el => {
-        transformedArray.push(func(el))
-    })
+    forEach(arr, el => transformedArray.push(func(el)));
     return transformedArray;
 }
 
@@ -43,7 +41,7 @@ function getAdultAppleLovers(data) {
 function getKeys(obj) {
     let keys = [];
     for(let key in obj) {
-        if(key) {
+        if(obj.hasOwnProperty(key)) {
             keys.push(key);
         }
     }
@@ -53,7 +51,7 @@ function getKeys(obj) {
 function getValues(obj) {
     let values = [];
     for(let key in obj) {
-        if(key) {
+        if(obj.hasOwnProperty(key)) {
             values.push(obj[key]);
         }
     }
