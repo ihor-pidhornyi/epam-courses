@@ -1,16 +1,17 @@
 function reverseNumber(num) {
     const MULTIPLICITY = 10;
+    const isNegative = num < 0;
     let reversedNumber = 0;
-    for(; num !== 0; num |= 0) {
+    for (num = Math.abs(num); num !== 0; num = Math.floor(num)) {
         let rest = num % MULTIPLICITY;
         reversedNumber = reversedNumber * MULTIPLICITY + rest;
         num /= MULTIPLICITY;
     }
-    return reversedNumber;
+    return isNegative ? -reversedNumber : reversedNumber;
 }
 
 function forEach(arr, func) {
-    for(let el of arr) {
+    for (let el of arr) {
         func(el);
     }
 }
@@ -24,7 +25,7 @@ function map(arr, func) {
 function filter(arr, func) {
     const filteredArray = [];
     forEach(arr, el => {
-        if(func(el)) {
+        if (func(el)) {
             filteredArray.push(el);
         }
     });
@@ -40,8 +41,8 @@ function getAdultAppleLovers(data) {
 
 function getKeys(obj) {
     let keys = [];
-    for(let key in obj) {
-        if(obj.hasOwnProperty(key)) {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
             keys.push(key);
         }
     }
@@ -50,8 +51,8 @@ function getKeys(obj) {
 
 function getValues(obj) {
     let values = [];
-    for(let key in obj) {
-        if(obj.hasOwnProperty(key)) {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
             values.push(obj[key]);
         }
     }
