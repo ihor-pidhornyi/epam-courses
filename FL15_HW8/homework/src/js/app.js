@@ -15,7 +15,8 @@ const validate = (ev) => {
     } else if (!timeField.value.match(timeRegExp)) {
         alert('Enter time in format hh:mm');
     } else {
-        alert(`${nameField.value} has a ${eventName} today at ${timeField.value} somewhere in ${placeField.value}`);
+        console.log(`${nameField.value} has a ${eventName} ` +
+        `today at ${timeField.value} somewhere in ${placeField.value}`);
         form.reset()
     }
 }

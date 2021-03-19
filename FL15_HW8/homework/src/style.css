@@ -79,7 +79,7 @@ body {
     bottom: 0;
     border-bottom: 2px solid #4caf50;
     transform: translateX(-100%);
-    transition: 0.4s ease-in;
+    transition: 0.3s ease-in;
 }
 
 .form__input:focus+.form__label .fieldset__line,
