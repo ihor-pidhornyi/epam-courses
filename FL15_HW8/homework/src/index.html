@@ -10,44 +10,47 @@
 </head>
 
 <body>
-  <form id="form" class="form" method="POST">
-    <div class="form__line">
+  <div class="root">
+    <form id="form" class="form" method="POST">
+      <h1 class="form__title">Create event & convert currency</h1>
+      <div class="form__line">
+        <div class="form__line">
+          <div class="form__fieldset fieldset">
+            <input class="form__input" id="POST-name" type="text" required>
+            <label class="form__label" for="POST-name">
+              <span class="fieldset__placeholder">Enter name:</span>
+              <span class="fieldset__line"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+  
       <div class="form__line">
         <div class="form__fieldset fieldset">
-          <input class="form__input" id="POST-name" type="text" required>
-          <label class="form__label" for="POST-name">
-            <span class="fieldset__placeholder">Enter name:</span>
+          <input class="form__input" id="POST-time" type="text" required>
+          <label class="form__label" for="POST-time">
+            <span class="fieldset__placeholder">Enter time:</span>
             <span class="fieldset__line"></span>
           </label>
         </div>
       </div>
-    </div>
-
-    <div class="form__line">
-      <div class="form__fieldset fieldset">
-        <input class="form__input" id="POST-time" type="text" required>
-        <label class="form__label" for="POST-time">
-          <span class="fieldset__placeholder">Enter time:</span>
-          <span class="fieldset__line"></span>
-        </label>
+  
+      <div class="form__line">
+        <div class="form__fieldset fieldset">
+          <input class="form__input" id="POST-place" type="text" required>
+          <label class="form__label" for="POST-place">
+            <span class="fieldset__placeholder">Enter place:</span>
+            <span class="fieldset__line"></span>
+          </label>
+        </div>
       </div>
-    </div>
-
-    <div class="form__line">
-      <div class="form__fieldset fieldset">
-        <input class="form__input" id="POST-place" type="text" required>
-        <label class="form__label" for="POST-place">
-          <span class="fieldset__placeholder">Enter place:</span>
-          <span class="fieldset__line"></span>
-        </label>
+  
+      <div class="form__buttons">
+        <button id="confirm" class="form__button">Confirm</button>
+        <button id="converter" class="form__button">Converter</button>
       </div>
-    </div>
-
-    <div class="form__buttons">
-      <button id="confirm" class="form__button">Confirm</button>
-      <button id="converter" class="form__button">Converter</button>
-    </div>
-  </form>
+    </form>
+  </div>
   <script src="js/app.js"></script>
 </body>
 
