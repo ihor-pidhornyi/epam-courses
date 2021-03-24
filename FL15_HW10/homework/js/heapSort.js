@@ -16,8 +16,7 @@ function heapSort(arr) {
 function heapify(arr, len) {
     let mid = Math.floor(len / 2 - 1);
     while (mid >= 0) {
-        siftDown(arr, mid, len);
-        mid--
+        siftDown(arr, mid--, len);
     }
 }
 
