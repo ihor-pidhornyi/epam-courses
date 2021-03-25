@@ -31,7 +31,7 @@ function viewResults() {
 			i++;
 		}
 	}
-
+	localStorage.clear();
 }
 
 function setDefaultData(obj) {
