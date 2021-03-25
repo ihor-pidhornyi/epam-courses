@@ -17,5 +17,3 @@ const countPoints = arr => {
         }
     }, 0);
 }
-
-console.log(negativeCount([]));
