@@ -2,7 +2,7 @@ const isEquals = (a, b) => a === b;
 const isBigger = (a, b) => a > b;
 const storeNames = (...names) => names;
 const getDifference = (a, b) => a > b ? a - b : b - a;
-const negativeCount = arr => arr.reduce((acc, cur) => acc + (cur < 0 ? 1 : 0), 0);
+const negativeCount = arr => arr.reduce((acc, cur) => cur < 0 ? ++acc : acc, 0);
 const letterCount = (str, letter) => str.length - str.toLowerCase().split(letter.toLowerCase()).join('').length;
 const countPoints = arr => {
     const POINTS_FOR_WIN = 3;
@@ -17,3 +17,5 @@ const countPoints = arr => {
         }
     }, 0);
 }
+
+console.log(negativeCount([]));
