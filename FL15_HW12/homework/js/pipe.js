@@ -3,14 +3,18 @@ function isFunction(functionToCheck) {
 }
 
 const pipe = (value, ...funcs) => {
+	let errorAt;
 	try {
-		return funcs.reduce((result, currFunction) => currFunction(result), value);
-	} catch(e) {
 		for(let i = 0; i < funcs.length; i++) {
 			if(!isFunction(funcs[i])) {
-				return `Provided argument at position ${i} is not a function!`;
+				errorAt = i;
+				throw new Error();
 			}
 		}
+
+		return funcs.reduce((result, currFunction) => currFunction(result), value);
+	} catch(e) {
+		return `Provided argument at position ${errorAt} is not a function!`;
 	}		
 };
 
