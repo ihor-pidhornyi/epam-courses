@@ -82,5 +82,3 @@ function getAllUrlsFromText(text) {
     const regExp = new RegExp(ptrn);
     return text.match(regExp) || [];
 }
-
-console.log(howFarIs('monday'));
