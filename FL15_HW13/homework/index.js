@@ -78,7 +78,12 @@ function addThousandsSeparators(number) {
 }
 
 function getAllUrlsFromText(text) {
+    if(text === undefined) {
+        return '(error)';
+    }
     const ptrn = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/gi
     const regExp = new RegExp(ptrn);
     return text.match(regExp) || [];
 }
+
+console.log(getAllUrlsFromText());
