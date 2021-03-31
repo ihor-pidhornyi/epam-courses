@@ -184,11 +184,12 @@ function sortBy(compare) {
 }
 
 function countriesComparator(a, b) {
-    const SORT_BY_COLUMN = 0;
+    const SORT_BY_COLUMN = 0,
+        MINUS_ONE = -1;
     const first = a.getElementsByTagName('td')[SORT_BY_COLUMN].textContent;
     const second = b.getElementsByTagName('td')[SORT_BY_COLUMN].textContent;
     if (first > second) {
-        return -1;
+        return MINUS_ONE;
     } else if (first < second) {
         return 1;
     } else {
