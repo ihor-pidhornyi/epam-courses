@@ -1,68 +1,37 @@
 const appRoot = document.getElementById('app-root');
 const { getCountryListByRegion, getCountryListByLanguage, getRegionsList, getLanguagesList } = externalService;
-let regionRadio, languageRadio, optionSelector;
-
-function createComponent(desc = 'Component description', className, children = []) {
-    const wrapper = document.createElement('div');
-    const description = document.createElement('p');
-    description.textContent = desc;
-    wrapper.append(description, ...children);
-    wrapper.classList.add(className);
-    return wrapper;
-}
 
 function renderHeader() {
-    const wrapper = document.createElement('header');
-
-    const caption = document.createElement('h1');
-    caption.textContent = 'Countries search';
-    caption.classList.add('title');
-
-    const radioPicker = createComponent('Please choose type of search:', 'radio-picker', radioChooser());
-    const selectPicker = createComponent('Please choose search query:', 'select-picker', selectChooser());
-
-    wrapper.append(caption, radioPicker, selectPicker);
-    appRoot.append(wrapper);
-}
-
-function radioChooser() {
-    const radioWrapper = document.createElement('div');
-    const region = document.createElement('div'),
-        language = document.createElement('div');
-    const byRegion = document.createElement('input'),
-        byLanguage = document.createElement('input');
-    const regionLabel = document.createElement('label'),
-        languageLabel = document.createElement('label');
-
-    byRegion.type = 'radio', byLanguage.type = 'radio';
-    byRegion.name = 'filter', byLanguage.name = 'filter';
-    byRegion.id = 'region', byLanguage.id = 'language';
-    byRegion.value = 'region', byLanguage.value = 'language';
-
-    regionLabel.textContent = 'By Region';
-    languageLabel.textContent = 'By Language';
-    regionLabel.classList.add('label');
-    languageLabel.classList.add('label')
-    regionLabel.setAttribute('for', 'region');
-    languageLabel.setAttribute('for', 'language');
-
-    region.append(byRegion, regionLabel);
-    language.append(byLanguage, languageLabel);
-    radioWrapper.append(region, language)
-
-    return [radioWrapper];
-}
-
-function selectChooser() {
-    const select = document.createElement('select');
-    select.id = 'optionSelector'
-
-    const defaultValue = document.createElement('option');
-    defaultValue.textContent = 'Select your option';
-
-    select.append(defaultValue);
-
-    return [select];
+    appRoot.insertAdjacentHTML('afterbegin', `
+        <header>
+            <h1 class="title">Countries search</h1>
+            <form>
+                <div class="radio-picker">
+                    <p>Please choose type of search:</p>
+                    <div>
+                        <div>
+                            <label class="label" for="region">
+                                <input type="radio" name="filter" id="region" value="region">
+                                By Region
+                            </label>
+                        </div>
+                        <div>
+                            <label class="label" for="language">
+                                <input type="radio" name="filter" id="language" value="language">
+                                By Language
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-picker">
+                    <p>Please choose search query:</p>
+                    <select id="optionSelector" disabled>
+                        <option>Select your option</option>
+                    </select>
+                </div>
+            </form>
+        </header>
+    `);
 }
 
 function generateSelectOptions(options, parent) {
@@ -102,39 +71,41 @@ function renderData(option = '', data = []) {
 
 function generateTable(data) {
     const table = document.createElement('table');
+
     const thead = document.createElement('thead');
-    const headerRow = document.createElement('tr');
-    const cells = [];
-    const cellsNames = ['Country Name', 'Capital', 'World Region', 'Languages', 'Area', 'Flag']
-    cellsNames.forEach(el => {
-        const cell = document.createElement('th');
-        cell.textContent = el;
-        if (el === 'Country Name' || el === 'Area') {
-            const arrow = document.createElement('span');
-            arrow.classList.add('arrow');
-            arrow.id = el.split(' ').join('') + 'Sort';
-            arrow.textContent = '↕';
-            cell.append(arrow);
-        }
-        cells.push(cell);
-    });
-    headerRow.append(...cells);
-    thead.append(headerRow);
+    thead.insertAdjacentHTML('afterbegin', `
+        <tr>
+            <th>Country Name<span class="arrow" id="CountryNameSort">↕</span></th>
+            <th>Capital</th>
+            <th>World Region</th>
+            <th>Languages</th>
+            <th>Area<span class="arrow" id="AreaSort">↕</span></th>
+            <th>Flag</th>
+        </tr>
+    `);
 
     const tbody = document.createElement('tbody');
     data.forEach(el => {
-        const { name, capital, region, languages, area, flagURL } = el;
-        const row = document.createElement('tr');
-        const img = document.createElement('img');
-        img.src = flagURL;
-        img.alt = 'flag';
-        const cellsData = [name, capital, region, Object.values(languages).join(', '), area, img];
-        cellsData.forEach(element => {
-            const cell = document.createElement('td');
-            cell.append(element);
-            row.append(cell);
-        })
-        tbody.append(row);
+        const {
+            name,
+            capital,
+            region,
+            languages,
+            area,
+            flagURL
+        } = el;
+        tbody.insertAdjacentHTML('afterbegin', `
+            <tr>
+                <td>${name}</td>
+                <td>${capital}</td>
+                <td>${region}</td>
+                <td>${Object.values(languages).join(', ')}</td>
+                <td>${area}</td>
+                <td>
+                    <img src="${flagURL}" alt="country flag">
+                </td>
+            </tr>
+        `)
     })
     tbody.id = 'data-table';
     table.append(thead, tbody);
@@ -151,11 +122,11 @@ function arrowFuncHandler() {
         areaArrow.textContent = '↕';
         countSecond = 0;
         if (!countFirst) {
-            countryArrow.textContent = '↓';
+            countryArrow.textContent = '↑';
             countFirst++;
             sortBy(countriesComparator);
         } else {
-            countryArrow.textContent = '↑';
+            countryArrow.textContent = '↓';
             countFirst = 0;
             reverseNodes();
         }
@@ -164,11 +135,11 @@ function arrowFuncHandler() {
         countryArrow.textContent = '↕';
         countFirst = 0;
         if (!countSecond) {
-            areaArrow.textContent = '↓';
+            areaArrow.textContent = '↑';
             countSecond++;
             sortBy(areaComparator)
         } else {
-            areaArrow.textContent = '↑';
+            areaArrow.textContent = '↓';
             countSecond = 0;
             reverseNodes()
         }
@@ -211,9 +182,9 @@ function reverseNodes() {
     tbody.append(...arr);
 }
 
-function radioFuncHandler(selectData) {
-    generateSelectOptions(selectData, optionSelector);
-    renderData(optionSelector.value);
+function radioFuncHandler(selectData, select) {
+    generateSelectOptions(selectData, select);
+    renderData(select.value);
 }
 
 function removeChildNodes(parent, left = 0) {
@@ -224,21 +195,23 @@ function removeChildNodes(parent, left = 0) {
 
 window.addEventListener('load', () => {
     renderHeader();
-    regionRadio = document.getElementById('region');
-    languageRadio = document.getElementById('language');
-    optionSelector = document.getElementById('optionSelector');
+    const regionRadio = document.getElementById('region'),
+        languageRadio = document.getElementById('language'),
+        optionSelector = document.getElementById('optionSelector');
 
     let selectedRadio = '';
     regionRadio.addEventListener('click', (ev) => {
         if (selectedRadio !== 'region') {
             selectedRadio = ev.target.value;
-            radioFuncHandler(getRegionsList());
+            radioFuncHandler(getRegionsList(), optionSelector);
+            optionSelector.removeAttribute('disabled');
         }
     }, );
     languageRadio.addEventListener('click', (ev) => {
         if (selectedRadio !== 'language') {
             selectedRadio = ev.target.value;
-            radioFuncHandler(getLanguagesList());
+            radioFuncHandler(getLanguagesList(), optionSelector);
+            optionSelector.removeAttribute('disabled');
         }
     });
     optionSelector.addEventListener('change', (ev) => {
