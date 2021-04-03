@@ -1,18 +1,23 @@
 /* START TASK 1: Your code goes here */
 function task1() {
     const table = document.getElementById('table');
-    const [yellow, blue, green] = ['row__cell_yellow', 'row__cell_blue', 'row__cell_green']
+    const [basic, yellow, blue, green] = ['row__cell', 'row__cell_yellow', 'row__cell_blue', 'row__cell_green']
     table.addEventListener('click', ev => {
         const cell = ev.target;
         if (!cell.cellIndex) {
             const cells = [...cell.parentNode.children];
-            const classes = cells.map(el => el.className).join('');
-            if (!classes.includes(yellow)) {
-                cells.forEach(el => el.classList.add(blue));
-            }
+            cells.forEach(curCell => {
+                if (!curCell.classList.contains(yellow)) {
+                    curCell.className = `${basic} ${blue}`;
+                }
+            })
         } else if (cell.textContent === 'Special Cell') {
-            const parent = cell.parentNode;
-            [...parent.parentNode.children].forEach(row => {
+            document.getElementById('table').classList.add('table_green');
+            if (cell.classList.contains(green) || cell.classList.contains(blue)) {
+                cell.className = `${basic} ${yellow}`;
+            }
+            const parent = cell.closest('tbody');
+            [...parent.children].forEach(row => {
                 [...row.children].forEach(cellEl => {
                     if (cellEl.classList.length === 1) {
                         cellEl.classList.add(green);
@@ -20,7 +25,7 @@ function task1() {
                 })
             })
         } else {
-            cell.classList.add(yellow);
+            cell.className = `${basic} ${yellow}`;
         }
     })
 }
@@ -55,8 +60,10 @@ function task2() {
 
     button.addEventListener('click', ev => {
         ev.preventDefault();
-        message.textContent = SUCCESSFUL_MESSAGE;
-        message.classList.add('message_success');
+        if (input.value) {
+            message.textContent = SUCCESSFUL_MESSAGE;
+            message.classList.add('message_success');
+        }
     })
 }
 task2();
@@ -133,7 +140,7 @@ function task3() {
     const hoopA = document.querySelector('.game__hoop_team-a'),
         hoopB = document.querySelector('.game__hoop_team-b');
 
-    const score = new Event('goal');
+    const score = new CustomEvent('goal');
 
     ball.style.left = START_X + 'px';
     ball.style.top = START_Y + 'px';
@@ -147,7 +154,6 @@ function task3() {
     })
     field.addEventListener('click', ev => {
         if (ev.target !== ball && ev.target !== hoopA && ev.target !== hoopB) {
-            console.log(ev.offsetX, ev.offsetY);
             moveTo(ev.offsetX, ev.offsetY);
         }
         if (ev.target === hoopA) {
