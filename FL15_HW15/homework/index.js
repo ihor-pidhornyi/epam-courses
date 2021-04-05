@@ -116,7 +116,7 @@ function task3() {
         }
     }
 
-    function goal(coords, notificationText, notificationClass) {
+    function goal(coords, event) {
         const GOAL_DELAY = 400;
         const NOTIFICATION_DELAY = 3000;
         moveTo(coords.x, coords.y);
@@ -124,12 +124,20 @@ function task3() {
             clearTimeout(timeout);
             goalNotification.className = 'game__goal-message';
             goalNotification.textContent = '';
-            goalNotification.textContent = notificationText;
-            goalNotification.classList.add(notificationClass);
+            goalNotification.textContent = event.detail.msg;
+            goalNotification.classList.add(`game__goal-message_${event.detail.color}`);
             timeout = setTimeout(() => {
                 goalNotification.textContent = '';
             }, NOTIFICATION_DELAY);
         }, GOAL_DELAY)
+    }
+    function goalEvent(team, color) {
+        return new CustomEvent('goal', {
+            detail: {
+                msg: `Team ${team} score!`,
+                color: color
+            }
+        })
     }
     let timeout;
     const field = document.getElementById('field'),
@@ -140,27 +148,25 @@ function task3() {
     const hoopA = document.querySelector('.game__hoop_team-a'),
         hoopB = document.querySelector('.game__hoop_team-b');
 
-    const score = new CustomEvent('goal');
-
     ball.style.left = START_X + 'px';
     ball.style.top = START_Y + 'px';
 
-    hoopA.addEventListener('goal', () => {
-        goal(GOAL_IN_A, 'Team B score!', 'game__goal-message_red')
+    hoopA.addEventListener('goal', ev => {
+        goal(GOAL_IN_A, ev)
     })
 
-    hoopB.addEventListener('goal', () => {
-        goal(GOAL_IN_B, 'Team A score!', 'game__goal-message_blue');
+    hoopB.addEventListener('goal', ev => {
+        goal(GOAL_IN_B, ev);
     })
     field.addEventListener('click', ev => {
         if (ev.target !== ball && ev.target !== hoopA && ev.target !== hoopB) {
             moveTo(ev.offsetX, ev.offsetY);
         }
         if (ev.target === hoopA) {
-            hoopA.dispatchEvent(score);
+            hoopA.dispatchEvent(goalEvent('B', 'red'));
             scoreTeamB.textContent = parseInt(scoreTeamB.textContent) + 1;
         } else if (ev.target === hoopB) {
-            hoopB.dispatchEvent(score);
+            hoopB.dispatchEvent(goalEvent('A', 'blue'));
             scoreTeamA.textContent = parseInt(scoreTeamA.textContent) + 1;
         }
     })
