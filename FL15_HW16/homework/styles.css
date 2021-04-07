@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+button:focus,
+textarea:focus {
+    outline: none;
+}
+.hidden {
+    display: none;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+body > div {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+h1,
+.listPage > div,
+.formButtons {
+    margin: 1em 0;
+    text-align: center;
+}
+.listPage > div > button,
+.formButtons > button {
+    margin: 0 1em;
+    padding: 1em 2em;
+    border: 1px solid #77c5f3;
+    border-radius: 5px;
+    background-color: #77c5f3;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.listPage > div > button:hover,
+.formButtons > button:hover {
+    background-color: #fff;
+    color: #77c5f3;
+}
+ul {
+    padding: 0;
+    list-style: none;
+}
+ul > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    padding: 1em 2em;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0px 4px 11px 0px rgba(34, 60, 80, 0.2);
+}
+.tweet {
+    cursor: pointer;
+}
+.removeButton,
+.likeButton {
+    margin: 0 0.25em;
+    padding: 0;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+.removeButton {
+    font-size: 50px;
+    line-height: 1;
+    color: #000;
+    transition: 0.2s ease-in-out;
+}
+.removeButton:hover {
+    color: #c23434;
+}
+.likeButton {
+    font-size: 30px;
+}
+.liked {
+    color: #e2264d;
+}
+.unliked {
+    color: #aab8c2;;
+}
+#alertMessage {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+}
+#alertMessage > div {
+    margin: 1em 0;
+}
+textarea {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    font-family: "Roboto", sans-serif;
+}
+.info-message,
+.error-message {
+    position: relative;
+    width: 250px;
+    padding: 1em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+}
+.info-message {
+    border: 1px solid #3845f3;
+    color: #3d6ff8;
+}
+.error-message {
+    border: 1px solid #ce2c2c;
+    color: #ce2c2c;
+}
+.line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transform: translateX(0%);   
+    transition: all 2s linear;
+}
+.info-message .line {
+    background-color: #3845f3;
+}
+.error-message .line {
+    background-color: #ce2c2c;
+}
+.controlButtons {
+    display: flex;
+    align-items: center;
+}
