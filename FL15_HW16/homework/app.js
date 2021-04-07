@@ -16,14 +16,11 @@ class Tweets {
         this.tweets.push(tweet);
     }
     editTweet(name, id) {
-        console.log(this.tweets);
         this.tweets.forEach(tweet => {
             if (tweet.id === id) {
                 tweet.name = name;
-                console.log(name, tweet.name);
             }
         })
-        console.log(this.tweets);
     }
     removeTweet(id) {
         this.tweets = [...this.tweets.filter(el => el.id !== id).map((el, i) => {
@@ -67,11 +64,13 @@ const root = document.getElementById('root'),
 
 const tweets = new Tweets();
 
+// general function wrapper which updates state, after using method created by this function
 function virtualDOM(tweets, callback) {
     function updateLocalStorage(tweets) {
         localStorage.setItem('tweets', JSON.stringify(tweets));
     }
 
+    // function which controls Go to liked button
     function goToLiked(tweets) {
         const likedTweets = tweets.getLikedTweets();
 
@@ -125,19 +124,25 @@ function renderTweets() {
 function alertNotification(className) {
     const DELAY = 2000;
     const ACTION_DELAY = 50;
-    return function(msg) {
-       
-        const errorBlock = document.createElement('div'),
-            line = document.createElement('div');
+    return function (msg) {
+
+        const errorBlock = document.createElement('div');
+
+        // line for custom animation
+        const line = document.createElement('div');
         line.classList.add('line');
+
         errorBlock.classList.add(className);
         errorBlock.textContent = msg
         errorBlock.append(line);
         alertMessage.insertAdjacentElement('beforeend', errorBlock)
         alertMessage.classList.remove('hidden');
+
+        // timeout for custom animation
         setTimeout(() => {
             line.style.transform = 'translateX(-100%)'
         }, ACTION_DELAY);
+
         setTimeout(() => {
             alertMessage.removeChild(errorBlock);
             if (alertMessage.children.length === 1) {
@@ -148,12 +153,17 @@ function alertNotification(className) {
 }
 
 const errorAlert = alertNotification('error-message');
+
 const successAlert = alertNotification('info-message');
 
 const removeTweet = virtualDOM(tweets, id => tweets.removeTweet(id));
+
 const likeTweet = virtualDOM(tweets, id => tweets.likeTweet(id));
+
 const editTweet = virtualDOM(tweets, (name, id) => tweets.editTweet(name, id));
+
 const addTweet = virtualDOM(tweets, tweet => tweets.addTweet(tweet));
+
 const setTweets = virtualDOM(tweets, tweetsToSet => tweets.setTweets(tweetsToSet));
 
 function mainPage() {
@@ -212,10 +222,10 @@ function saveAfterAdding() {
     if (tweets.getTweetsNames().includes(tweet.name)) {
         errorAlert('Error! You can\'t tweet about that');
         return;
-    } else if(!tweet.name) {
+    } else if (!tweet.name) {
         errorAlert('Error! You shoud write a tweet!');
         return;
-    } else if(tweet.name.length > MAX_LENGTH) {
+    } else if (tweet.name.length > MAX_LENGTH) {
         errorAlert('Error! Exceeded tweet length!');
         return;
     }
@@ -230,10 +240,10 @@ function saveAfterEdit() {
         modifyItemInput.value !== tweets.getTweetById(id).name) {
         errorAlert('Error! You can\'t tweet about that');
         return;
-    } else if(!modifyItemInput.value) {
+    } else if (!modifyItemInput.value) {
         errorAlert('Error! You shoud write a tweet!');
         return;
-    } else if(modifyItemInput.value.length > MAX_LENGTH) {
+    } else if (modifyItemInput.value.length > MAX_LENGTH) {
         errorAlert('Error! Exceeded tweet length!');
         return;
     }
