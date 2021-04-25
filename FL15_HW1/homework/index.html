@@ -3,193 +3,175 @@
 
 <head>
   <meta charset="utf-8">
-  <title>HTML Basics</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flexbox</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div id="wrapper">
-    <div id="main">
-      <div id="container">
-        <div id="content" role="main">
-          <header>
-            <a href="#"><img src="logo.png" alt="epam logo"></a>
-            <h1><strong>HTML Elements</strong></h1>
-            <hr>
-            <nav>
-              <a href="#main"><b>Home</b></a>
-              <a href="#headers"><b>Headers</b></a>
-              <a href="#table"><b>Table</b></a>
-              <a href="#list"><b>List</b></a>
-              <a href="#textFormats"><b>Text formats</b></a>
-              <a href="#blockquotes"><b>Blockquotes</b></a>
-            </nav>
-            <hr>
-          </header>
-          <main>
-            <section id="headers">
-              <p>
-                Pay attention to h1 tag inside section element. Font-size for h1 is the same as font-size for h2,
-                because
-                we have to use only one h1 on the page, and it is commonly used inside header
-              </p>
-              <h2>Header 2</h2>
-              <h3>Header 3</h3>
-              <h4>Header 4</h4>
-              <h5>Header 5</h5>
-              <h6>Header 6</h6>
-            </section>
-            <hr>
-            <p>
-              Lorem ipsum dolor sit amet, <a href="#">test link</a> adipiscing elit. <strong>This is strong.</strong>
-              Nullam dignissim convallis est.
-              Quisque aliquam. <em>This is emphasized.</em> Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> =
-              125. Water is H<sub>2</sub>O.
-              Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New
-                York
-                Times</cite> (That’s a citation).<u>Underline.</u> Maecenas ornare tortor. Donec sed tellus eget sapien
-              fringilla
-              nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi
-              imperdiet augue quis tellus.
-            </p>
-            <p>
-              <abbr title="Hyper Text Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr>
-              are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in,
-              nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat
-              justo, eu volutpat enim diam eget metus. To copy a file type <kbd>COPY</kbd> <em>filename</em>.
-              <del>Dinner`s at 5:00.</del> <ins>Let’s make
-                that 7.</ins> This <s>text</s> has been struck.
-            </p>
-            <hr>
-            <section id="table">
-              <h2>Table</h2>
-              <table>
-                <caption></caption>
-                <thead>
-                  <tr>
-                    <th scope="rowgroup">Header</th>
-                    <th scope="rowgroup">Header</th>
-                    <th scope="rowgroup">Header</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Lviv</td>
-                    <td>Kyiv</td>
-                    <td>Kharkiv</td>
-                  </tr>
-                  <tr>
-                    <td>Odessa</td>
-                    <td>Zhytomyr</td>
-                    <td>Dnipropetrovsk</td>
-                  </tr>
-                  <tr>
-                    <td>Sumy</td>
-                    <td>Chernivtsi</td>
-                    <td>Lutsk</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            <section id="list">
-              <h2>Unordered List</h2>
-              <ul>
-                <li>List item 1</li>
-                <li>List item 2
-                  <ul>
-                    <li>Some nested list item 1</li>
-                  </ul>
-                </li>
-                <li>List item 3</li>
-              </ul>
-              <h2>Ordered List</h2>
-              <ol start="1">
-                <li>List item 1</li>
-                <li>List item 2
-                  <ol start="-">
-                    <li>Some nested list item 1</li>
-                  </ol>
-                </li>
-                <li>List item 3</li>
-              </ol>
-              <h3>Definition List</h3>
-              <dl>
-                <dt>defines terms 1</dt>
-                <dd>description 1</dd>
-                <dt>defines terms 2</dt>
-                <dd>description 2</dd>
-              </dl>
-            </section>
-            Details
-            <select>
-              <option value="html" selected>HTML</option>
-              <option value="css">CSS</option>
-              <option value="js">JS</option>
-            </select>
-            <hr>
-            <section id="textFormats">
-              <h2>Text formats</h2>
-              <h3>Article Text</h3>
-              <article>
-                <h2>Article title</h2>
-                <p>Article description</p>
-              </article>
-              <h3>Preformatted Text</h3>
-              <pre>
-<strong>Text</strong>
-  in a <strong>pre</strong> element
-    is displayed in a fixed-width
-font, and it preserves
-both           spaces and
-    line breaks
-            </pre>
-              <h3>Code</h3>
-              <pre>
-              <code>
-.wrapper {
-  display: flex;
-  vertical-align: middle;
-  justify-content: center;
-}
-</code>
-            </pre>
-            </section>
-            <section id="blockquotes">
-              <h2>Blockquotes</h2>
-              <p>Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the
-                citation.</p>
-              <blockquote>
-                "If you go back a few hundred years, what we take for granted today would seem like magic-being able to
-                talk to people over long distances, to transmit images, flying, accessing vast amounts of data like an
-                oracle. These are all things that would have been considered magic a few hundred years ago."<br>
-                <a href="#">Elon Musk</a>
-              </blockquote>
-            </section>
-            <hr>
-            <form>
-              <label>
-                First name:
-                <input type="text" name="firstname">
-              </label><br>
-              <label>
-                Surname:
-                <input type="text" name="surname">
-              </label><br>
-              <label>
-                Email:
-                <input type="email" name="email">
-              </label><br>
-              <textarea cols="30" rows="10"></textarea><br>
-              <button>Submit</button>
-            </form>
-          </main>
-          <footer>
-            © Copyright Epam Systems
-          </footer>
+  <main class="wrapper">
+    <section class="about">
+      <div class="about__row">
+        <div class="row__media">
+          <div class="row__media-content">
+            <h1 class="row__heading">
+              Epam
+            </h1>
+          </div>
+        </div>
+        <div class="row__details">
+          <p class="details__text details__text_italic details__text_bigger">
+            " What We Do We help customers around the world become competitive - and stay competitive. We combine
+            best-in-class software engineering with digital strategy and experience design, business consulting and
+            technology innovation services. "
+          </p>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="about__row">
+        <div class="row__media">
+          <div class="row__media-content">
+            <div class="row__background-img"></div>
+            <p class="row__img-caption">
+              <small>Epic Games: Transforming the Gaming Industry</small>
+            </p>
+          </div>
+        </div>
+        <div class="row__details">
+          <h2 class="details__caption details__caption_skyblue">
+            Learn-From-Home Services for Enterprises
+          </h2>
+          <p class="details__text">
+            As the travel industry addresses some of the major challenges that emerged as a result of the pandemic,
+            airlines can turn to intelligent automation to improve experiences and operations
+          </p>
+          <button class="btn btn_right details__btn">Read More</button>
+        </div>
+      </div>
+      <div class="about__row">
+        <div class="row__media">
+          <img class="row__img row__img_scalable" src="img/image-01.jpg" alt="air pay">
+        </div>
+        <div class="row__details">
+          <h2 class="details__caption">Architecting Security into Your Modern Enterprise</h2>
+          <p class="details__text">
+            It's time to engineer a trusted future through strategically architected cybersecurity.
+            <a class="details__link" href="https://www.epam.com/" target="_blank">Epam</a> website. Thank you.
+          </p>
+          <button class="btn btn_center details__btn">Read More</button>
+        </div>
+      </div>
+      <div class="about__bottom-row">
+        <div class="row__media">
+          <img class="row__img row__img_scalable" src="img/image-02.jpg" alt="tennis cort in the forest">
+        </div>
+        <div class="row__details">
+          <h2 class="details__caption details__caption_skyblue">
+            Lorem ipsum dolor sit.
+          </h2>
+          <p class="details__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae veniam debitis
+            error voluptatem officia ut animi ex cum consequatur, non, enim hic porro suscipit minima explicabo</p>
+          <p class="details__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae veniam debitis
+            error voluptatem officia ut animi ex cum consequatur, non, enim hic porro suscipit minima explicabo</p>
+          <p class="details__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae veniam debitis
+            error voluptatem officia ut animi ex cum consequatur, non, enim hic porro suscipit minima explicabo!</p>
+          <button class="btn btn_right details__btn">Read More</button>
+        </div>
+      </div>
+    </section>
+    <section class="offers">
+      <div class="offers__img-wrapper">
+        <img class="offers__img offers__img_scalable" src="img/image-03.jpg" alt="basketball field">
+      </div>
+      <div class="offers__content">
+        <div class="offers__offer">
+          <div class="offer__header">
+            <h2 class="offer__caption">Standart Plan</h2>
+            <h3 class="offer__subcaption">($25 per month)</h3>
+          </div>
+          <div class="offer__main">
+            <ul class="offer__details">
+              <li class="details__item">Lorem ipsum dolor sit amet.</li>
+              <li class="details__item">Lorem, ipsum.</li>
+              <li class="details__item">Lorem, ipsum dolor.</li>
+              <li class="details__item">Lorem, ipsum dolor.</li>
+              <li class="details__item">Lorem ipsum dolor sit.</li>
+              <li class="details__item">Lorem, ipsum.</li>
+            </ul>
+            <button class="btn btn_center offer__btn">Buy now</button>
+          </div>
+        </div>
+        <div class="offers__offer">
+          <div class="offer__header">
+            <h2 class="offer__caption">Advanced Plan</h2>
+            <h3 class="offer__subcaption">($40 per month)</h3>
+          </div>
+          <div class="offer__main">
+            <ul class="offer__details">
+              <li class="details__item">Lorem ipsum dolor sit amet.</li>
+              <li class="details__item">Lorem, ipsum.</li>
+              <li class="details__item">Lorem, ipsum dolor.</li>
+              <li class="details__item">Lorem, ipsum dolor.</li>
+              <li class="details__item">Lorem ipsum dolor sit.</li>
+              <li class="details__item">Lorem, ipsum.</li>
+            </ul>
+            <button class="btn btn_center offer__btn offer__btn_nomargin">Buy now</button>
+            <div class="offer__discount">
+              <span class="asteriks">*</span> Special discount
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="contact__header">
+        <h2 class="contact__caption">
+          Application Form
+        </h2>
+      </div>
+      <div class="contact__form-wrapper">
+        <form method="POST" class="form contact__form">
+          <div class="form__fields">
+            <div class="fields__column">
+              <input class="column__input" type="text" name="name" placeholder="Full Name">
+              <input class="column__input" type="email" name="email" placeholder="Your Email">
+              <select class="column__select" name="position">
+                <option value="" disabled selected>Position</option>
+              </select>
+              <select class="column__select" name="salary">
+                <option value="" disabled selected>Salary</option>
+              </select>
+            </div>
+            <div class="fields__column">
+              <textarea class="column__textarea" name="message" rows="8" placeholder="Additional Message"></textarea>
+            </div>
+          </div>
+          <button class="btn btn_center form__btn">Submit</button>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="footer__info-wrapper">
+        <div class="footer__info">
+          <div class="footer__column">
+            <h2 class="footer__caption">Lorem ipsum dolor</h2>
+            <p class="footer__text">1010 Vivamaus viverra
+              Leo vel porttitor sodales
+              Non eleifend 10980</p>
+          </div>
+          <div class="footer__column">
+            <p class="footer__text">Maecenas fermentum
+              Nam eu justo et urna
+              Semper maximus libero
+              Etiam magna quam</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        Copyright © 2020 Your Company Name
+      </div>
+    </footer>
+  </main>
 </body>
 
 </html>
