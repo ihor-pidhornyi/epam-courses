@@ -10,21 +10,19 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
+.navbar-top,
+.header,
+.header__navbar {
+  background-image: url("../img/header-bg.jpg");
+  background-size: 100%;
+}
+
 .navbar-top {
   height: 3rem;
-  background-image: url("/homework/assets/img/header-bg.jpg");
-  background-size: 100%;
 }
 
 .header {
   padding: .25rem 0 .25rem;
-  background-image: url("/homework/assets/img/header-bg.jpg");
-  background-size: 100%;
-}
-
-.header__navbar {
-  background-image: url("/homework/assets/img/header-bg.jpg");
-  background-size: 100%;
 }
 
 .header__caption {
@@ -69,7 +67,7 @@ body {
   border-radius: 40px;
   border: none;
   font-size: 1.4em;
-  background-image: url("/homework/assets/img/touch-bg.png");
+  background-image: url("../img/touch-bg.png");
   background-position: center;
   background-size: cover;
   cursor: pointer;
@@ -160,7 +158,7 @@ body {
   bottom: -30px;
   width: 60%;
   height: 60%;
-  background-image: url("/homework/assets/img/references-image-bg.png");
+  background-image: url("../img/references-image-bg.png");
   z-index: -1;
 }
 
@@ -230,7 +228,7 @@ body {
 }
 .footer {
   padding: 4rem 0;
-  background-image: url("/homework/assets/img/footer-bg.jpg");
+  background-image: url("../img/footer-bg.jpg");
   background-size: cover;
   color: #fff;
 }
