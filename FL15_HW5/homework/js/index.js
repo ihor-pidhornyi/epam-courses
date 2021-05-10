@@ -25,7 +25,7 @@ const getCommentsByPostId = (postId) => {
 }
 
 const getPostsByUser = (id, start = 0, limit = '2') => {
-    return fetch(`${baseUrl}/users/${id}/posts?_start=${start}&_limit=${limit}?userId=${id}`)
+    return fetch(`${baseUrl}/users/${id}/posts?_embed=comments&?_start=${start}&_limit=${limit}?userId=${id}`)
 }
 
 function* gettingPostsByPortions(id, start, limit, increment, maxPosts) {
@@ -140,7 +140,7 @@ const onDeleteHandler = (id) => {
     renderList(users)
 }
 
-const renderPost = (post, comments) => {
+const renderPost = (post) => {
     const template = document.createElement('article');
     template.insertAdjacentHTML('beforeend', `
             <hr>
@@ -148,7 +148,7 @@ const renderPost = (post, comments) => {
             <p>Post text: ${post.body}</p>
         `)
     postsWrapper.append(template);
-    renderComments(comments)
+    renderComments(post.comments)
 }
 
 const renderComments = (comments) => {
@@ -173,18 +173,13 @@ const redirect = (id, userName) => {
             posts.then(response => response.json())
                 .then(result => {
                     for (let post of result) {
-                        getCommentsByPostId(post.id)
-                            .then(respone => respone.json())
-                            .then(comments => {
-                                renderPost(post, comments);
-                            })
+                        renderPost(post);
                     }
                     loadingCompleted()
                     document.body.append(loadMore)
                 })
         } else {
-            const btn = document.getElementById('loadMore');
-            if (btn) {
+            if (document.getElementById('loadMore')) {
                 document.body.removeChild(loadMore)
             }
             loadingCompleted()
