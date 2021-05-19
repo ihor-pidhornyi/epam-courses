@@ -1,0 +1,24 @@
+@import "roboto.scss";
+
+$white: #fff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../assets/main-background.jpg);
+    background-position: 50% 0%;
+    .app {
+        height: 100vh;
+        max-width: 700px;
+        margin: 0 auto;
+        align-items: center;
+        padding-top: 2rem;
+        font-family: 'Roboto', sans-serif;
+        color: $white;
+    }
+}
+

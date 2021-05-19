@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Tools</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <div class="app__header header">
+        <ul class="header__rules">
+          <li>Scissors beats a paper</li>
+          <li>Paper beats rock</li>
+          <li>Rock beats scissors</li>
+          <li>And we play up to three wins!</li>
+        </ul>
+        <h1 class="header__caption">Let's play!</h1>
+      </div>
+    </header>
+    <main>
+      <div class="app__game game">
+        <div class="game__controls">
+          <button class="game__button" data-suit="Rock">Rock</button>
+          <button class="game__button" data-suit="Paper">Paper</button>
+          <button class="game__button" data-suit="Scissors">Scissors</button>
+        </div>
+        <p class="game__result-message" id="message"></p>
+        <button class="game__reset-button game__reset-button_start" id="reset">Reset</button>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

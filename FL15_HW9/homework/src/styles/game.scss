@@ -1,0 +1,48 @@
+$dark-blue: #115f8d;
+$main-blue: #28b4e5;
+$white: #fff;
+$gray: #808080;
+
+.game {
+    display: flex;
+    flex-direction: column;
+
+    .game__controls {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
+    }
+    .game__button,
+    .game__reset-button {
+        padding: 1em 2em;
+        background-color: $white;
+        border-radius: 5px;
+        border: 2px solid $dark-blue;
+        cursor: pointer;
+        color: $dark-blue;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+    }
+    .game__reset-button_start {
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+    .game__button:hover,
+    .game__reset-button:hover {
+        border: 2px solid $white;
+        background-color: $main-blue;
+        color: $white;
+    }
+    .game__result-message {
+        font-size: 2em;
+        font-weight: 700;
+    }
+    .game__button:disabled,
+    .game__reset-button:disabled {
+        border: 2px solid $white;
+        background-color: $gray;
+        opacity: 0.6;
+        color: $white;
+    }
+}
