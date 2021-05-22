@@ -19,7 +19,7 @@ let timerId;
 [...buttons].forEach(btn => {
     btn.addEventListener('click', () => {
         logResult(`Round ${gameStatus.roundCount++}, ${play(gameStatus, btn.dataset.suit, randSuit())}`);
-        if(gameStatus.roundCount === 4) {
+        if(gameStatus.firstPlayerWins === 3 || gameStatus.secondPlayerWins === 3) {
             [...buttons].forEach(el => el.setAttribute('disabled', true))
             timerId = setTimeout(() => {
                 const score = `Score ${gameStatus.firstPlayerWins}:${gameStatus.secondPlayerWins}`;
