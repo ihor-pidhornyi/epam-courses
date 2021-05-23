@@ -201,21 +201,21 @@ fetch('mock.json')
         generateAllUnits(state.topRM);
         generateWarningEmployees(state.topRM);
     })
-allEmployees.addEventListener('click', () => {
+
+function removeChildren() {
     while (root.firstChild) {
         root.removeChild(root.firstChild);
     }
+}
+allEmployees.addEventListener('click', () => {
+    removeChildren();
     renderAllEmployees(state.topRM);
 })
 allUnits.addEventListener('click', () => {
-    while (root.firstChild) {
-        root.removeChild(root.firstChild);
-    }
+    removeChildren();
     renderUnits(state.unitsState);
 })
 warningEmployees.addEventListener('click', () => {
-    while (root.firstChild) {
-        root.removeChild(root.firstChild);
-    }
+    removeChildren();
     renderWarningEmployees(state.warningEmployeesState)
 })
