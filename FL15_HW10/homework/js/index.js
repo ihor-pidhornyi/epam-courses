@@ -43,12 +43,29 @@ class Employee {
     }
 }
 
-
 const state = {
     unitsState: new Set(),
     topRM: null,
     allWorkersData: [],
-    warningEmployeesState: []
+    warningEmployeesState: [],
+    numbersAfterComma: 2
+}
+const performanceMatcher = {
+    'low': 1,
+    'average': 2,
+    'top': 3
+}
+function getPerformanceByPool(pool) {
+    const points = pool.sumPerformancePoints / pool.workers;
+    if(points <= performanceMatcher['low']) {
+        return 'low';
+    }
+    if(points < performanceMatcher['average']) {
+        return 'average';
+    }
+    if(points <= performanceMatcher['top']) {
+        return 'top';
+    }
 }
 
 function generateTreeStructure(parent, children) {
@@ -132,12 +149,14 @@ function renderAllEmployees(parent, parentContainer) {
 function setUnit(parent, container, data = {
     pool_name: parent.pool_name,
     sumSalary: parent.salary,
-    workers: 1
+    workers: 1,
+    sumPerformancePoints: 0
 }) {
     if (parent.isComposite()) {
         parent.children.forEach(child => {
             data.sumSalary += child.salary;
-            data.workers++
+            data.workers++;
+            data.sumPerformancePoints += performanceMatcher[child.performance];
             if (child.isComposite()) {
                 setUnit(child, container, data);
             }
@@ -156,11 +175,29 @@ function generateAllUnits(parent, units = state.unitsState) {
 }
 
 function renderUnits(units) {
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    thead.insertAdjacentHTML('afterbegin', `
+        <tr>
+            <th>Pool name</th>
+            <th>Average Salary</th>
+            <th>Average Performance</th>
+        </tr>
+    `)
+    const tbody = document.createElement('tbody');
     units.forEach(unit => {
-        const pool = document.createElement('div');
-        pool.textContent = `${unit.pool_name} with average salary: ${unit.sumSalary / unit.workers}`;
-        root.append(pool);
+        const pool = document.createElement('tr');
+        const averageSalary = (unit.sumSalary / unit.workers).toFixed(state.numbersAfterComma);
+        const averagePerformance = getPerformanceByPool(unit);
+        pool.insertAdjacentHTML('afterbegin', `
+            <td>${unit.pool_name}</td>
+            <td>${averageSalary}</td>
+            <td>${averagePerformance}</td>
+        `);
+        tbody.append(pool);
     })
+    table.append(thead, tbody)
+    root.append(table);
 }
 
 function getAverageSalaryByPool(name) {
@@ -184,12 +221,15 @@ function generateWarningEmployees(parent) {
 }
 
 function renderWarningEmployees(employees) {
+    const list = document.createElement('ul');
+    list.classList.add('warning-employees');
     employees.forEach(employee => {
-        const element = document.createElement('div');
+        const element = document.createElement('li');
         element.textContent = `${employee.name}, salary: ${employee.salary}, performance: ${employee.performance}`;
         element.classList.add('warning');
-        root.append(element);
+        list.append(element);
     })
+    root.append(list)
 }
 
 
