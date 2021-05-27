@@ -1,0 +1,35 @@
+@import 'roboto.scss';
+
+$borderDesktop:8px solid #fff;
+$borderPhone: 4px solid #fff;
+$border-radius: 8px;
+$cellSize: 200px;
+$telephoneCellSize: 100px;
+$phoneWidth: 768px;
+$markSizeDesktop: 7em;
+$markSizeMobile: 4em;
+$fontSizeDesktop: 3em;
+$fontSizeMobile: 1.5em;
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    overflow-y: hidden;
+}
+
+@media screen and (max-width: #{$phoneWidth + 1px}) {
+    body {
+        overflow-y: scroll;
+    }
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@import 'startGame.scss';
+@import 'game.scss';

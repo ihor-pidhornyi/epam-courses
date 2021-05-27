@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS Modules</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="start-game" id="startGame">
+      <div class="start-game__img-wrap">
+        <img class="start-game__img" src="" alt="tic tac toe logo" id="logo">
+      </div>
+      <h1 class="start-game__caption">Tic tac toe!</h1>
+      <select class="start-game__select" id="selectGame">
+        <option class="start-game__option" value="single" selected>Single player</option>
+        <option class="start-game__option" value="two">Two players</option>
+      </select>
+
+      <form class="start-game__form">
+        <fieldset class="form__fieldset" id="singleForm">
+          <legend>Play against Bot</legend>
+          <label class="form__label">
+            Your Name:
+            <input class="form__input" type="text" id="playerNameSingle" autocomplete="off">
+          </label>
+        </fieldset>
+        <fieldset class="form__fieldset fieldset_hidden" id="twoPlayersForm">
+          <legend>Player against player</legend>
+          <label class="form__label">
+            Player Name 1:
+            <input class="form__input" type="text" id="firstPlayerName" autocomplete="off">
+          </label>
+          <label class="form__label">
+            Player Name 2:
+            <input class="form__input" type="text" id="secondPlayerName" autocomplete="off">
+          </label>
+        </fieldset>
+        <button class="form__button" id="playBtn">Start game!</button>
+      </form>
+    </div>
+
+    <section class="game game_hidden" id="game">
+      <div class="game__players">
+        <div class="player game__player">
+          <div class="player__name player__name_highlighted" id="firstPlayer"></div>
+          <div class="player__score" id="firstPlayerScore"></div>
+        </div>
+        <div class="player game__player">
+          <div class="player__name" id="secondPlayer"></div>
+          <div class="player__score" id="secondPlayerScore"></div>
+        </div>
+      </div>
+      <div class="field game__field" id="gridField">
+        <div class="field__element" data-cell="0"></div>
+        <div class="field__element" data-cell="1"></div>
+        <div class="field__element" data-cell="2"></div>
+        <div class="field__element" data-cell="3"></div>
+        <div class="field__element" data-cell="4"></div>
+        <div class="field__element" data-cell="5"></div>
+        <div class="field__element" data-cell="6"></div>
+        <div class="field__element" data-cell="7"></div>
+        <div class="field__element" data-cell="8"></div>
+        <canvas class="game__canvas" width="600" height="600" id="lineDrawer"></canvas>
+      </div>
+
+      <div class="game__controls">
+        <button class="controls__btn" id="newGameBtn">New Game</button>
+        
+        <button class="controls__btn" id="resetBtn">Reset</button>
+      </div>
+
+      <div class="game__message" id="message">
+
+      </div>
+
+    </section>
+  </div>
+</body>
+
+</html>

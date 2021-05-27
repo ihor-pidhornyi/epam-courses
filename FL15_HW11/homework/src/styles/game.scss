@@ -1,0 +1,182 @@
+.game_hidden {
+    display: none;
+}
+
+.field {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, $cellSize);
+    grid-template-rows: repeat(3, $cellSize);
+
+    &_disabled {
+        pointer-events: none;
+    }
+
+    .field__element {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: $markSizeDesktop;
+        cursor: pointer;
+        user-select: none;
+        color: #fff;
+
+        &:nth-child(3n) {
+            border-left: $borderDesktop;
+        }
+
+        &:nth-child(3n+1) {
+            border-right: $borderDesktop;
+        }
+
+        @for $i from 1 to 4 {
+            &:nth-child(#{$i}) {
+                border-bottom: $borderDesktop;
+            }
+        }
+
+        @for $i from 7 to 10 {
+            &:nth-child(#{$i}) {
+                border-top: $borderDesktop;
+            }
+        }
+    }
+
+
+}
+
+.game__players {
+    display: flex;
+    justify-content: space-between;
+
+    .player__name {
+        margin: .5em 0;
+        font-weight: 700;
+        font-size: 3em;
+        letter-spacing: .1em;
+        transition: all 0.3s ease-in-out;
+        color: #fff;
+    }
+
+    .player__name_highlighted {
+        color: #e0dfdc;
+        text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .player__score {
+        font-weight: 700;
+        text-align: center;
+        font-size: 2em;
+        color: #fff;
+    }
+}
+
+
+.game__controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+
+    .controls__btn {
+        padding: 1em 2em;
+        font-size: 1.25em;
+        background: transparent;
+        border: 2px solid #fff;
+        border-radius: $border-radius;
+        cursor: pointer;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #fff;
+            color: rgba(63, 94, 251, 1);
+        }
+    }
+}
+
+.game__message {
+    margin-top: .5em;
+    text-align: center;
+    font-size: 1.75em;
+    color: #fff;
+}
+
+.game__canvas {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $cellSize * 3;
+    height: 100%;
+    z-index: -1;
+}
+
+@media screen and (max-width: #{$phoneWidth + 1}) {
+    .wrapper {
+        padding: 0 1em;
+    }
+
+
+    .field {
+        grid-template-columns: repeat(3, $telephoneCellSize);
+        grid-template-rows: repeat(3, $telephoneCellSize);
+
+        .field__element {
+            font-size: $markSizeMobile;
+
+            &:nth-child(3n) {
+                border-left: $borderPhone;
+            }
+
+            &:nth-child(3n+1) {
+                border-right: $borderPhone;
+            }
+
+            @for $i from 1 to 4 {
+                &:nth-child(#{$i}) {
+                    border-bottom: $borderPhone;
+                }
+            }
+
+            @for $i from 7 to 10 {
+                &:nth-child(#{$i}) {
+                    border-top: $borderPhone;
+                }
+            }
+        }
+    }
+
+    .game__players {
+    
+        margin: 1em 0 3em;
+
+        .player__name {
+            font-size: $fontSizeMobile / 1.5;
+        }
+    
+        .player__name_highlighted {
+            text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020;
+        }
+    
+        .player__score {
+            font-size: $fontSizeMobile / 1.5;
+        }
+    }
+
+    .game__controls {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2em;
+        
+        .controls__btn {
+            padding: 1em 2em;
+            font-size: 1em;
+        }
+    }
+
+    .game__canvas {
+        width: $telephoneCellSize * 3;
+    }
+}

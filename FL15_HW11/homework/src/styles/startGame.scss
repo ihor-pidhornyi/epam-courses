@@ -1,0 +1,127 @@
+.start-game {
+    text-align: center;
+    color: #fff;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+
+    &_visible {
+        opacity: 1;
+    }
+
+    &_hidden,
+    .fieldset_hidden {
+        display: none;
+    }
+
+    .start-game__img {
+        max-width: 100%;
+    }
+
+    .start-game__img-wrap {
+        margin: 3em auto 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .start-game__caption {
+        text-align: center;
+        font-size: 4em;
+        color: #fff;
+    }
+
+    .start-game__select {
+        display: block;
+        margin: 0 auto;
+        padding: 1em 2em;
+        background: transparent;
+        font-size: 1.5em;
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background: #fff;
+            color: rgba(63, 94, 251, 1);
+            outline: none;
+        }
+
+        .start-game__option {
+            color: #000;
+        }
+    }
+
+    .form__fieldset {
+        margin: 2em 0;
+        font-size: 1.25em;
+        border: 2px solid #fff;
+        border-radius: $border-radius;
+    }
+
+    .form__label {
+        margin: 1em 0;
+        font-size: 1.5em;
+        display: block;
+
+        .form__input {
+            margin-left: 10px;
+            padding: 1em 1.5em;
+            font-size: .75em;
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: $border-radius;
+            color: #fff;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .form__button {
+        padding: 1em 2em;
+        font-size: 1.25em;
+        background: transparent;
+        border: 2px solid #fff;
+        border-radius: $border-radius;
+        cursor: pointer;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #fff;
+            color: rgba(63, 94, 251, 1);
+        }
+    }
+
+}
+
+@media screen and (max-width: #{$phoneWidth + 1}) {
+    .start-game {
+        .start-game__img-wrap {
+            margin: 5em auto 0;
+            width: 100px;
+            height: 100px;
+        }
+
+        .start-game__caption {
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .start-game__select {
+            font-size: 1em;
+        }
+
+        .form__fieldset {
+            font-size: 1em;
+        }
+
+        .form__button {
+            margin-bottom: 2em;
+        }
+    }
+}
